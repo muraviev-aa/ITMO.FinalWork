@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.util.Objects;
 
 import static javax.swing.SwingConstants.CENTER;
 
@@ -113,8 +114,9 @@ public class Calculator extends JFrame {
 
         button9.addActionListener(e -> {
             JDialog dialog = createDialog("Расчет стальных балок на кручение");
-            JLabel image = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().
-                    getResource("/bimoment.png"))), SwingConstants.CENTER);
+            JLabel image = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().
+                    getImage(getClass().getResource("/bimoment.png"))),
+                    SwingConstants.CENTER);
             Border softBevelLowered = BorderFactory.
                     createSoftBevelBorder(BevelBorder.LOWERED);
             image.setBorder(softBevelLowered);
