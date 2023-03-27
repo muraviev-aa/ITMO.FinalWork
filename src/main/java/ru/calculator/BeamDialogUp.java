@@ -288,7 +288,8 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
 
         helpButton.addActionListener(e -> {
             JDialog dialog = createDialog();
-            JLabel image = new JLabel(new ImageIcon("src/main/resources/u_p.png"),
+            JLabel image = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().
+                    getImage(getClass().getResource("/u_p.png"))),
                     SwingConstants.CENTER);
             Border softBevelLowered = BorderFactory.
                     createSoftBevelBorder(BevelBorder.LOWERED);
@@ -304,7 +305,8 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
 
         helpButton1.addActionListener(e -> {
             JDialog dialog = createDialog();
-            JLabel image = new JLabel(new ImageIcon("src/main/resources/normal_up.png"),
+            JLabel image = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().
+                    getImage(getClass().getResource("/normal_up.png"))),
                     SwingConstants.CENTER);
             Border softBevelLowered = BorderFactory.
                     createSoftBevelBorder(BevelBorder.LOWERED);

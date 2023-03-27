@@ -25,14 +25,16 @@ public class Calculator extends JFrame {
      * Изображение
      */
     private final Image anim =
-            new ImageIcon("src\\main\\resources\\anim.gif").getImage();
+            new ImageIcon(Toolkit.getDefaultToolkit().
+                    getImage(getClass().getResource("/anim.gif"))).getImage();
 
     public Calculator() {
         super("БиМКа 1.0");
         setContentPane(panel);
         this.setIconImage(Toolkit.getDefaultToolkit().
                 getImage(getClass().getResource("/ant.gif")));
-        final ImageIcon icon = new ImageIcon("icon1.png");
+        final ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().
+                getImage(getClass().getResource("/icon1.png")));
         /**
          * Операция при закрытии окна
          */
@@ -111,8 +113,8 @@ public class Calculator extends JFrame {
 
         button9.addActionListener(e -> {
             JDialog dialog = createDialog("Расчет стальных балок на кручение");
-            JLabel image = new JLabel(new ImageIcon("src/main/resources/bimoment.png"),
-                    SwingConstants.CENTER);
+            JLabel image = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().
+                    getResource("/bimoment.png"))), SwingConstants.CENTER);
             Border softBevelLowered = BorderFactory.
                     createSoftBevelBorder(BevelBorder.LOWERED);
             image.setBorder(softBevelLowered);
