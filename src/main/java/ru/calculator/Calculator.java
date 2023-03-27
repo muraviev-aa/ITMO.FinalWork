@@ -1,10 +1,9 @@
 package ru.calculator;
 
 import javax.swing.*;
-import javax.swing.border.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import static javax.swing.SwingConstants.CENTER;
 
@@ -26,7 +25,7 @@ public class Calculator extends JFrame {
      * Изображение
      */
     private final Image anim =
-            new ImageIcon("anim.gif").getImage();
+            new ImageIcon("src\\main\\resources\\anim.gif").getImage();
 
     public Calculator() {
         super("БиМКа 1.0");
@@ -112,7 +111,8 @@ public class Calculator extends JFrame {
 
         button9.addActionListener(e -> {
             JDialog dialog = createDialog("Расчет стальных балок на кручение");
-            JLabel image = new JLabel(new ImageIcon("bimoment.png"), SwingConstants.CENTER);
+            JLabel image = new JLabel(new ImageIcon("src/main/resources/bimoment.png"),
+                    SwingConstants.CENTER);
             Border softBevelLowered = BorderFactory.
                     createSoftBevelBorder(BevelBorder.LOWERED);
             image.setBorder(softBevelLowered);
@@ -122,6 +122,7 @@ public class Calculator extends JFrame {
              * Расположение JDialog по центру
              */
             dialog.setLocationRelativeTo(dialog);
+            jTabbedPane.setVisible(true);
             dialog.setVisible(true);
         });
 
@@ -130,14 +131,12 @@ public class Calculator extends JFrame {
         button3.addActionListener(e -> SwingUtilities.invokeLater(BeamDialogI::new));
         button2.addActionListener(e -> SwingUtilities.invokeLater(BeamDialogIws::new));
         button1.addActionListener(e -> SwingUtilities.invokeLater(BeamDialogIwa::new));
-        button6.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                DbFunctions db = new DbFunctions();
-                String user = textField1.getText();
-                String password = passwordField1.getText();
-                db.connectToDb("test", user, password);
-            }
+
+        button6.addActionListener(e -> {
+            DbFunctions db = new DbFunctions();
+            String user = textField1.getText();
+            String password = passwordField1.getText();
+            db.connectToDb("test", user, password);
         });
 
         button7.addActionListener(e -> JOptionPane.showMessageDialog(

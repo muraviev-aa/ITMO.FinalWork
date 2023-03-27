@@ -5,8 +5,8 @@ import java.sql.Connection;
 import static java.sql.DriverManager.getConnection;
 
 public class DbFunctions extends JFrame {
-    private final ImageIcon icon = new ImageIcon("ok.png");
-    private final ImageIcon icon1 = new ImageIcon("icon1.png");
+    private final ImageIcon icon = new ImageIcon("src/main/resources/ok.png");
+    private final ImageIcon icon1 = new ImageIcon("src/main/resources/icon1.png");
 
     public Connection connectToDb(String dbname, String user, String password) {
         Connection conn = null;

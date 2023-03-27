@@ -304,7 +304,8 @@ public class BeamDialogIws extends JFrame implements Bimoment, SectionI {
 
         helpButton1.addActionListener(e -> {
             JDialog dialog = createDialog();
-            JLabel image = new JLabel(new ImageIcon("norm_dvs.png"), SwingConstants.CENTER);
+            JLabel image = new JLabel(new ImageIcon("src/main/resources/norm_dvs.png"),
+                    SwingConstants.CENTER);
             Border softBevelLowered = BorderFactory.
                     createSoftBevelBorder(BevelBorder.LOWERED);
             image.setBorder(softBevelLowered);
