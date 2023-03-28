@@ -118,13 +118,8 @@ public class Calculator extends JFrame {
 
         button9.addActionListener(e -> {
             JDialog dialog = createDialog("Расчет стальных балок на кручение");
-            BufferedImage bi;
-            try {
-                bi = ImageIO.read(Objects.requireNonNull(getClass().getResource("/bimoment.png")));
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-            JLabel image = new JLabel(new ImageIcon(bi),
+            JLabel image = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().
+                    getImage(getClass().getResource("/bimoment.png"))),
                     SwingConstants.CENTER);
             Border softBevelLowered = BorderFactory.
                     createSoftBevelBorder(BevelBorder.LOWERED);

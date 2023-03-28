@@ -1,15 +1,19 @@
 package ru.calculator;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.NumberFormat;
+import java.util.Objects;
 
 public class BeamDialogI extends JFrame implements Bimoment, SectionI {
     /**
