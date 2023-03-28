@@ -76,6 +76,7 @@ public class Calculator extends JFrame {
          * Расположение диалогового окна JFrame в центре
          */
         setLocationRelativeTo(null);
+        jTabbedPane.setVisible(true);
         /**
          * Добавляем компонент с анимацией в слой PALETTE
          */
@@ -126,7 +127,6 @@ public class Calculator extends JFrame {
              * Расположение JDialog по центру
              */
             dialog.setLocationRelativeTo(dialog);
-            jTabbedPane.setVisible(true);
             dialog.setVisible(true);
         });
 
