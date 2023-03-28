@@ -1,9 +1,12 @@
 package ru.calculator;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Objects;
 
 import static javax.swing.SwingConstants.CENTER;
@@ -115,13 +118,18 @@ public class Calculator extends JFrame {
 
         button9.addActionListener(e -> {
             JDialog dialog = createDialog("Расчет стальных балок на кручение");
-            JLabel image1 = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().
-                    getImage(getClass().getResource("/bimoment.png"))),
+            BufferedImage bi;
+            try {
+                bi = ImageIO.read(Objects.requireNonNull(getClass().getResource("/bimoment.png")));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            JLabel image = new JLabel(new ImageIcon(bi),
                     SwingConstants.CENTER);
             Border softBevelLowered = BorderFactory.
                     createSoftBevelBorder(BevelBorder.LOWERED);
-            image1.setBorder(softBevelLowered);
-            dialog.getContentPane().add(image1);
+            image.setBorder(softBevelLowered);
+            dialog.getContentPane().add(image);
             dialog.setSize(450, 250);
             /**
              * Расположение JDialog по центру
