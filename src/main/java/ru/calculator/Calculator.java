@@ -33,7 +33,7 @@ public class Calculator extends JFrame {
                     getImage(getClass().getResource("/anim.gif"))).getImage();
 
     public Calculator() {
-        super("БиМКа 1.0");
+        super("БимКа 1.0");
         setContentPane(panel);
         this.setIconImage(Toolkit.getDefaultToolkit().
                 getImage(getClass().getResource("/ant.gif")));
