@@ -603,7 +603,6 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
                     + "'" + tf + "', '" + wx + "')";
             statement = conn.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row insert");
         } catch (Exception e) {
             e.printStackTrace();
         }
