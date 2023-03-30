@@ -148,6 +148,8 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
     private JLabel cb2;
     private JButton selectButton;
     private JButton deleteButton;
+    private JButton insertButton;
+    private JTextField textField20;
     boolean flag;
 
     public BeamDialogUp() {
@@ -186,7 +188,7 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
         tabbedPane.setVisible(true);
         cb0.setVisible(true);
         cb2.setVisible(true);
-        setSize(830, 600);
+        setSize(870, 600);
         setLocationRelativeTo(null);
         setVisible(true);
         stop.setVisible(false);
@@ -336,6 +338,15 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
                 deleteRow();
             } catch (ClassNotFoundException exc) {
                 throw new RuntimeException(exc);
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        insertButton.addActionListener(e -> {
+            try {
+                insertRow();
+            } catch (ClassNotFoundException ex) {
+                throw new RuntimeException(ex);
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
@@ -566,6 +577,33 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
             String query = "DELETE FROM profiles.shvp WHERE b='" + dbl + "'";
             statement = conn.createStatement();
             statement.executeUpdate(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        conn.close();
+    }
+
+    public void insertRow() throws ClassNotFoundException, SQLException {
+        String dsn = "jdbc:postgresql://localhost:5432/test";
+        String uid = "postgres";
+        String pwd = "admin";
+        String shvp = String.valueOf(textField20.getText());
+        Double h = Double.valueOf(textField1.getText());
+        Double b = Double.valueOf(textField2.getText());
+        Double tw = Double.valueOf(textField4.getText());
+        Double tf = Double.valueOf(textField3.getText());
+        Double wx = Double.valueOf(textField17.getText());
+        Connection conn = null;
+        Statement statement = null;
+        Class.forName("org.postgresql.Driver");
+        conn = DriverManager.getConnection(dsn, uid, pwd);
+        try {
+            String query = "INSERT INTO profiles.shvp(number_shvp, h, b, tw, tf, wx) "
+                    + "values('" + shvp + "','" + h + "','" + b + "', '" + tw + "', "
+                    + "'" + tf + "', '" + wx + "')";
+            statement = conn.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Row insert");
         } catch (Exception e) {
             e.printStackTrace();
         }
