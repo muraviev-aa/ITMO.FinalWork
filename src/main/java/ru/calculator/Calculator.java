@@ -1,13 +1,9 @@
 package ru.calculator;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Objects;
 
 import static javax.swing.SwingConstants.CENTER;
 
