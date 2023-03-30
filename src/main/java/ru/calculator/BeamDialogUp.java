@@ -147,6 +147,7 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
     private JLabel cb0;
     private JLabel cb2;
     private JButton selectButton;
+    private JButton deleteButton;
     boolean flag;
 
     public BeamDialogUp() {
@@ -326,6 +327,16 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
             try {
                 seeTable();
             } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        deleteButton.addActionListener(e -> {
+            try {
+                deleteRow();
+            } catch (ClassNotFoundException exc) {
+                throw new RuntimeException(exc);
+            } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
         });
@@ -537,5 +548,27 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
                     });
                     frame.setVisible(true);
                 });
+    }
+
+    public void deleteRow() throws ClassNotFoundException, SQLException {
+        String dsn = "jdbc:postgresql://localhost:5432/test";
+        String uid = "postgres";
+        String pwd = "admin";
+        Double dbl = Double.valueOf(textField2.getText());
+        Connection conn = null;
+        Statement statement = null;
+        Class.forName("org.postgresql.Driver");
+        conn = DriverManager.getConnection(dsn, uid, pwd);
+        try {
+            /**
+             * удаление конкретной строки с указанием значения ячейки из textField
+             */
+            String query = "DELETE FROM profiles.shvp WHERE b='" + dbl + "'";
+            statement = conn.createStatement();
+            statement.executeUpdate(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        conn.close();
     }
 }
