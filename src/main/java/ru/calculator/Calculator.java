@@ -21,6 +21,7 @@ public class Calculator extends JFrame {
     private JButton button7;
     private JButton button8;
     private JButton button9;
+    private JButton button10;
     /**
      * Изображение
      */
@@ -45,6 +46,7 @@ public class Calculator extends JFrame {
         Dimension dimension = new Dimension(100, 20);
         button7.setPreferredSize(dimension);
         button6.setPreferredSize(dimension);
+        button10.setPreferredSize(dimension);
         /**
          * Всплывающие подсказки
          */
