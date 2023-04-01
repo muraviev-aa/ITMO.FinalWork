@@ -155,6 +155,28 @@ public class Calculator extends JFrame {
     }
 
     /**
+     * Геттер логина
+     */
+    public String getLogin() {
+        String login = textField1.getText();
+        if (login.trim().isEmpty()) {
+            login = "test";
+        }
+        return login;
+    }
+
+    /**
+     * Геттер пароля
+     */
+    public String getPassword() {
+        String password = String.valueOf(passwordField1.getPassword());
+        if (password.trim().isEmpty()) {
+            password = "test";
+        }
+        return password;
+    }
+
+    /**
      * Компонент, рисующий анимированное изображение
      */
     class Animation extends JComponent {
