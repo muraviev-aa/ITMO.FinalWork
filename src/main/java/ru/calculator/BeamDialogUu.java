@@ -500,7 +500,8 @@ public class BeamDialogUu extends JFrame implements Bimoment, SectionU {
         String pwd = "admin";
         Connection conn = DriverManager.getConnection(dsn, uid, pwd);
         Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM profiles.shvu");
+        ResultSet rs = st.executeQuery("SELECT * FROM profiles.shvu"
+                + "\n" + "ORDER BY number_shvu ASC");
         final DatabaseTableModel dbm =
                 new DatabaseTableModel(true);
         dbm.setDataSource(rs);

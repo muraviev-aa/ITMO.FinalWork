@@ -475,7 +475,8 @@ public class BeamDialogI extends JFrame implements Bimoment, SectionI {
         String pwd = "admin";
         Connection conn = DriverManager.getConnection(dsn, uid, pwd);
         Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM profiles.dvpr");
+        ResultSet rs = st.executeQuery("SELECT * FROM profiles.dvpr"
+                + "\n" + "ORDER BY number_dvpr ASC");
         final DatabaseTableModel dbm =
                 new DatabaseTableModel(true);
         dbm.setDataSource(rs);

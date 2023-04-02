@@ -532,7 +532,8 @@ public class BeamDialogUp extends JFrame implements Bimoment, SectionU {
         String pwd = "admin";
         Connection conn = DriverManager.getConnection(dsn, uid, pwd);
         Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM profiles.shvp");
+        ResultSet rs = st.executeQuery("SELECT * FROM profiles.shvp"
+                + "\n" + "ORDER BY number_shvp ASC");
         final DatabaseTableModel dbm =
                 new DatabaseTableModel(true);
         dbm.setDataSource(rs);
